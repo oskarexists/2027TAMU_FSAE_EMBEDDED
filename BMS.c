@@ -37,7 +37,7 @@ Byte 1 will hold 1 if there's an under-voltage fault active, 0 otherwise
 3, a delta fault
 4, an over-current
 
-INDIVIDUAL FAULT CAN IDS (to be sent):
+INDIVIDUAL FAULT CAN IDS AND BYTE FORMAT (to be sent):
     0x0B0: over-voltage         | 0th byte is which cell faulted, [1st,4th] is recorded voltage in milli-volts (0.001V)
     0x0B1: under-voltage        | 0th byte is which cell faulted, [1st,4th] is recorded voltage in milli-volts (0.001V)
     0x0B2: over-temperature     | 0th byte is which cell faulted, [1st,4th] is recorded temperature in milli-degrees celsius (0.001C)
@@ -45,9 +45,6 @@ INDIVIDUAL FAULT CAN IDS (to be sent):
                                 | [2nd, 4th] is recorded low-volt in milli-volts (0.001V)
                                 | [5th, 7th] is recorded hi-volt in milli-volts (0.001V)
     0x0B4: over-current         | [2nd, 5th] is recorded current in milli-amps (0.001A)
-    (im just sending my DATA array right back for over-current, since fault signal (can BUS)
-    is sent immediately after detection anyway)
-
     *Unsigned big-endian for all
 */
 
