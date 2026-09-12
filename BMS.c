@@ -22,7 +22,7 @@ static volatile uint32_t CURRENT = 0;
 
 static bool MASTER_FAULTS[MAX_FAULT_AMOUNT]; 
 static uint16_t CURR_ID;
-static volatile uint8_t DATA[CAN_LEN];
+static uint8_t DATA[CAN_LEN];
 static uint8_t THEFAULT[CAN_LEN];
 
 static volatile bool TO_CLEAR = false;
@@ -112,7 +112,7 @@ void Iter()
             THEFAULT[3] = (uint8_t)(CURR_SNAP >> 16);
             THEFAULT[4] = (uint8_t)(CURR_SNAP >> 8);
             THEFAULT[5] = (uint8_t)(CURR_SNAP);
-            throw_fault(OVER_CURRENT_FAULT_ID, DATA);
+            throw_fault(OVER_CURRENT_FAULT_ID, THEFAULT);
     }
 
 
